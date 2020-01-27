@@ -1,0 +1,11 @@
+Etrias\PayvisionConnector\Type\Redirect:
+  properties:
+    method:
+      type: string
+      serialized_name: method
+    url:
+      type: string
+      serialized_name: url
+    fields:
+      type: array
+      serialized_name: fields

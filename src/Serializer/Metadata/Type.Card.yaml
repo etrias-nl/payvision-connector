@@ -1,0 +1,17 @@
+Etrias\PayvisionConnector\Type\Card:
+  properties:
+    holderName:
+      type: string
+      serialized_name: holderName
+    number:
+      type: string
+      serialized_name: number
+    expiryMonth:
+      type: string
+      serialized_name: expiryMonth
+    expiryYear:
+      type: string
+      serialized_name: expiryYear
+    cvv:
+      type: string
+      serialized_name: cvv

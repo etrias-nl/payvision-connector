@@ -1,0 +1,8 @@
+Etrias\PayvisionConnector\Response\GenericHeader:
+  properties:
+    requestTimestamp:
+      type: DateTime<'Y-m-d\TH:i:sP', null, 'Y-m-d\TH:i:sP'>
+      serialized_name: requestTimestamp
+    requestCode:
+      type: string
+      serialized_name: requestCode

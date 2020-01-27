@@ -1,0 +1,26 @@
+Etrias\PayvisionConnector\Type\BillingAddress:
+  properties:
+    street:
+      type: string
+      serialized_name: street
+    houseNumber:
+      type: string
+      serialized_name: houseNumber
+    houseNumberSuffix:
+      type: string
+      serialized_name: houseNumberSuffix
+    streetInfo:
+      type: string
+      serialized_name: streetInfo
+    city:
+      type: string
+      serialized_name: city
+    stateCode:
+      type: string
+      serialized_name: stateCode
+    zip:
+      type: string
+      serialized_name: zip
+    countryCode:
+      type: string
+      serialized_name: countryCode

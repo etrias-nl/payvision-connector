@@ -1,0 +1,23 @@
+Etrias\PayvisionConnector\Type\OrderLine:
+  properties:
+    productName:
+      type: string
+      serialized_name: productName
+    productCode:
+      type: string
+      serialized_name: productCode
+    description:
+      type: string
+      serialized_name: description
+    itemAmount:
+      type: string
+      serialized_name: itemAmount
+    quantity:
+      type: int
+      serialized_name: quantity
+    totalAmount:
+      type: string
+      serialized_name: totalAmount
+    taxPercentage:
+      type: string
+      serialized_name: taxPercentage

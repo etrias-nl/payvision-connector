@@ -1,0 +1,14 @@
+Etrias\PayvisionConnector\Response\PaymentResponse:
+  properties:
+    result:
+      type: int
+      serialized_name: result
+    description:
+      type: string
+      serialized_name: description
+    header:
+      type: Etrias\PayvisionConnector\Response\GenericHeader
+      serialized_name: header
+    body:
+      type: Etrias\PayvisionConnector\Response\PaymentBody
+      serialized_name: body

@@ -1,0 +1,20 @@
+Etrias\PayvisionConnector\Request\CreatePaymentLinkBody:
+  properties:
+    transaction:
+      type: Etrias\PayvisionConnector\Type\LinkTransaction
+      serialized_name: transaction
+    link:
+      type: Etrias\PayvisionConnector\Type\Link
+      serialized_name: link
+    customer:
+      type: Etrias\PayvisionConnector\Type\Customer
+      serialized_name: customer
+    billingAddress:
+      type: Etrias\PayvisionConnector\Type\BillingAddress
+      serialized_name: billingAddress
+    shippingAddress:
+      type: Etrias\PayvisionConnector\Type\ShippingAddress
+      serialized_name: shippingAddress
+    order:
+      type: Etrias\PayvisionConnector\Type\Order
+      serialized_name: order

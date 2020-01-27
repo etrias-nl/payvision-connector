@@ -1,0 +1,17 @@
+Etrias\PayvisionConnector\Type\LinkReference:
+  properties:
+    linkId:
+      type: string
+      serialized_name: linkId
+    status:
+      type: string
+      serialized_name: status
+    expirationTime:
+      type: DateTime<'Y-m-d\TH:i:sP', null, 'Y-m-d\TH:i:sP'>
+      serialized_name: expirationTime
+    redirect:
+      type: Etrias\PayvisionConnector\Type\Redirect
+      serialized_name: redirect
+    brandIds:
+      type: array<string>
+      serialized_name: brandIds

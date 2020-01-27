@@ -1,0 +1,29 @@
+Etrias\PayvisionConnector\Type\Transaction:
+  properties:
+    trackingCode:
+      type: string
+      serialized_name: trackingCode
+    amount:
+      type: string
+      serialized_name: amount
+    currencyCode:
+      type: string
+      serialized_name: currencyCode
+    storeId:
+      type: int
+      serialized_name: storeId
+    invoiceId:
+      type: string
+      serialized_name: invoiceId
+    purchaseId:
+      type: string
+      serialized_name: purchaseId
+    countryCode:
+      type: string
+      serialized_name: countryCode
+    brandId:
+      type: int
+      serialized_name: brandId
+    returnUrl:
+      type: string
+      serialized_name: returnUrl

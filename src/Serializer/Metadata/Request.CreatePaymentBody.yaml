@@ -1,0 +1,23 @@
+Etrias\PayvisionConnector\Request\CreatePaymentBody:
+  properties:
+    transaction:
+      type: Etrias\PayvisionConnector\Type\Transaction
+      serialized_name: transaction
+    card:
+      type: Etrias\PayvisionConnector\Type\Card
+      serialized_name: card
+    bank:
+      type: Etrias\PayvisionConnector\Type\Bank
+      serialized_name: bank
+    customer:
+      type: Etrias\PayvisionConnector\Type\Customer
+      serialized_name: customer
+    billingAddress:
+      type: Etrias\PayvisionConnector\Type\BillingAddress
+      serialized_name: billingAddress
+    shippingAddress:
+      type: Etrias\PayvisionConnector\Type\ShippingAddress
+      serialized_name: shippingAddress
+    order:
+      type: Etrias\PayvisionConnector\Type\Order
+      serialized_name: order

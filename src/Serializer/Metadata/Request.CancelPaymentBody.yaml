@@ -1,0 +1,5 @@
+Etrias\PayvisionConnector\Request\CancelPaymentBody:
+  properties:
+    transaction:
+      type: Etrias\PayvisionConnector\Type\CancelTransaction
+      serialized_name: transaction

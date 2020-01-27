@@ -1,0 +1,8 @@
+Etrias\PayvisionConnector\Request\CapturePaymentRequest:
+  properties:
+    header:
+      type: Etrias\PayvisionConnector\Request\GenericHeader
+      serialized_name: header
+    body:
+      type: Etrias\PayvisionConnector\Request\CapturePaymentBody
+      serialized_name: body

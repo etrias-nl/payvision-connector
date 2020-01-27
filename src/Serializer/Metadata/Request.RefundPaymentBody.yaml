@@ -1,0 +1,5 @@
+Etrias\PayvisionConnector\Request\RefundPaymentBody:
+  properties:
+    transaction:
+      type: Etrias\PayvisionConnector\Type\RefundTransaction
+      serialized_name: transaction

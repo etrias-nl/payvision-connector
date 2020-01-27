@@ -1,0 +1,8 @@
+Etrias\PayvisionConnector\Response\PaymentBody:
+  properties:
+    transaction:
+      type: Etrias\PayvisionConnector\Type\TransactionReference
+      serialized_name: transaction
+    redirect:
+      type: Etrias\PayvisionConnector\Type\Redirect
+      serialized_name: redirect

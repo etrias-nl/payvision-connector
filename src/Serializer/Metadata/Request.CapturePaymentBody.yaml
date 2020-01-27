@@ -1,0 +1,5 @@
+Etrias\PayvisionConnector\Request\CapturePaymentBody:
+  properties:
+    transaction:
+      type: Etrias\PayvisionConnector\Type\CaptureTransaction
+      serialized_name: transaction

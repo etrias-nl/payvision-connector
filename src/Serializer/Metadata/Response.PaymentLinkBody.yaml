@@ -1,0 +1,8 @@
+Etrias\PayvisionConnector\Response\PaymentLinkBody:
+  properties:
+    link:
+      type: Etrias\PayvisionConnector\Type\LinkReference
+      serialized_name: link
+    transaction:
+      type: Etrias\PayvisionConnector\Type\LinkTransactionReference
+      serialized_name: transaction

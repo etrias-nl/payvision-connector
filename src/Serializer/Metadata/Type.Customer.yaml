@@ -1,0 +1,50 @@
+Etrias\PayvisionConnector\Type\Customer:
+  properties:
+    customerId:
+      type: string
+      serialized_name: customerId
+    givenName:
+      type: string
+      serialized_name: givenName
+    familyName:
+      type: string
+      serialized_name: familyName
+    sex:
+      type: string
+      serialized_name: sex
+    birthDate:
+      type: DateTime<'Y-m-d', null, 'Y-m-d\TH:i:sP'>
+      serialized_name: birthDate
+    phoneNumber:
+      type: string
+      serialized_name: phoneNumber
+    mobileNumber:
+      type: string
+      serialized_name: mobileNumber
+    email:
+      type: string
+      serialized_name: email
+    companyName:
+      type: string
+      serialized_name: companyName
+    identificationTypeId:
+      type: int
+      serialized_name: identificationTypeId
+    identificationNumber:
+      type: string
+      serialized_name: identificationNumber
+    ipAddress:
+      type: string
+      serialized_name: ipAddress
+    type:
+      type: string
+      serialized_name: type
+    taxNumber:
+      type: string
+      serialized_name: taxNumber
+    httpUserAgent:
+      type: string
+      serialized_name: httpUserAgent
+    deviceType:
+      type: int
+      serialized_name: deviceType

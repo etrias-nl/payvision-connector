@@ -1,0 +1,5 @@
+Etrias\PayvisionConnector\Type\Order:
+  properties:
+    orderLines:
+      type: array<Etrias\PayvisionConnector\Type\OrderLine>
+      serialized_name: orderLines

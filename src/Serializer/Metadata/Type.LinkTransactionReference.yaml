@@ -1,0 +1,14 @@
+Etrias\PayvisionConnector\Type\LinkTransactionReference:
+  properties:
+    trackingCode:
+      type: string
+      serialized_name: trackingCode
+    amount:
+      type: string
+      serialized_name: amount
+    currencyCode:
+      type: string
+      serialized_name: currencyCode
+    authorizationMode:
+      type: string
+      serialized_name: authorizationMode

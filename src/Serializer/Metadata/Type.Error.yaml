@@ -1,0 +1,8 @@
+Etrias\PayvisionConnector\Type\Error:
+  properties:
+    code:
+      type: int
+      serialized_name: code
+    message:
+      type: string
+      serialized_name: message

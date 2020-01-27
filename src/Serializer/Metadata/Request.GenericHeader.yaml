@@ -1,0 +1,5 @@
+Etrias\PayvisionConnector\Request\GenericHeader:
+  properties:
+    businessId:
+      type: string
+      serialized_name: businessId

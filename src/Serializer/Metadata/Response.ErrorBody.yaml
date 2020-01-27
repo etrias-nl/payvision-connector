@@ -1,0 +1,5 @@
+Etrias\PayvisionConnector\Response\ErrorBody:
+  properties:
+    error:
+      type: Etrias\PayvisionConnector\Type\Error
+      serialized_name: error

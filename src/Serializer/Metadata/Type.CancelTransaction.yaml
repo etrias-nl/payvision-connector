@@ -1,0 +1,5 @@
+Etrias\PayvisionConnector\Type\CancelTransaction:
+  properties:
+    trackingCode:
+      type: string
+      serialized_name: trackingCode
