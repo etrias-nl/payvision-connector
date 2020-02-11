@@ -27,3 +27,6 @@ Etrias\PayvisionConnector\Type\Transaction:
     returnUrl:
       type: string
       serialized_name: returnUrl
+    descriptor:
+      type: string
+      serialized_name: descriptor

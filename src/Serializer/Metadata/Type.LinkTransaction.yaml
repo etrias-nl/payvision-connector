@@ -27,3 +27,6 @@ Etrias\PayvisionConnector\Type\LinkTransaction:
     authorizationMode:
       type: string
       serialized_name: authorizationMode
+    descriptor:
+      type: string
+      serialized_name: descriptor

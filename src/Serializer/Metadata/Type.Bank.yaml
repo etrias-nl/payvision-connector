@@ -1,0 +1,32 @@
+Etrias\PayvisionConnector\Type\Bank:
+  properties:
+    issuerId:
+      type: string
+      serialized_name: issuerId
+    countryCode:
+      type: string
+      serialized_name: countryCode
+    accountNumber:
+      type: string
+      serialized_name: accountNumber
+    accountHolderName:
+      type: string
+      serialized_name: accountHolderName
+    iban:
+      type: string
+      serialized_name: iban
+    bic:
+      type: string
+      serialized_name: bic
+    bankCode:
+      type: string
+      serialized_name: bankCode
+    mandateId:
+      type: string
+      serialized_name: mandateId
+    dateCollection:
+      type: DateTime<'Y-m-d', null, 'Y-m-d'>
+      serialized_name: dateCollection
+    dateMandateSigned:
+      type: DateTime<'Y-m-d', null, 'Y-m-d'>
+      serialized_name: dateMandateSigned

@@ -23,6 +23,9 @@ trait TransactionTrait
     /** @var null|int */
     protected $brandId;
 
+    /** @var null|string */
+    protected $descriptor;
+
     public function getStoreId(): ?int
     {
         return $this->storeId;
@@ -79,6 +82,18 @@ trait TransactionTrait
     public function setBrandId(?int $brandId): self
     {
         $this->brandId = $brandId;
+
+        return $this;
+    }
+
+    public function getDescriptor(): ?string
+    {
+        return $this->descriptor;
+    }
+
+    public function setDescriptor(?string $descriptor): self
+    {
+        $this->descriptor = $descriptor;
 
         return $this;
     }
