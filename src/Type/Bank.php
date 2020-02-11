@@ -6,23 +6,10 @@ namespace Etrias\PayvisionConnector\Type;
 
 class Bank
 {
+    use BankTrait;
+
     /** @var null|int */
     protected $issuerId;
-
-    /** @var null|string */
-    protected $countryCode;
-
-    /** @var null|string */
-    protected $accountNumber;
-
-    /** @var null|string */
-    protected $accountHolderName;
-
-    /** @var null|string */
-    protected $iban;
-
-    /** @var null|string */
-    protected $bic;
 
     /** @var null|string */
     protected $bankCode;
@@ -44,66 +31,6 @@ class Bank
     public function setIssuerId(?int $issuerId): self
     {
         $this->issuerId = $issuerId;
-
-        return $this;
-    }
-
-    public function getCountryCode(): ?string
-    {
-        return $this->countryCode;
-    }
-
-    public function setCountryCode(?string $countryCode): self
-    {
-        $this->countryCode = $countryCode;
-
-        return $this;
-    }
-
-    public function getAccountNumber(): ?string
-    {
-        return $this->accountNumber;
-    }
-
-    public function setAccountNumber(?string $accountNumber): self
-    {
-        $this->accountNumber = $accountNumber;
-
-        return $this;
-    }
-
-    public function getAccountHolderName(): ?string
-    {
-        return $this->accountHolderName;
-    }
-
-    public function setAccountHolderName(?string $accountHolderName): self
-    {
-        $this->accountHolderName = $accountHolderName;
-
-        return $this;
-    }
-
-    public function getIban(): ?string
-    {
-        return $this->iban;
-    }
-
-    public function setIban(?string $iban): self
-    {
-        $this->iban = $iban;
-
-        return $this;
-    }
-
-    public function getBic(): ?string
-    {
-        return $this->bic;
-    }
-
-    public function setBic(?string $bic): self
-    {
-        $this->bic = $bic;
 
         return $this;
     }

@@ -6,3 +6,6 @@ Etrias\PayvisionConnector\Response\PaymentBody:
     redirect:
       type: Etrias\PayvisionConnector\Type\Redirect
       serialized_name: redirect
+    bank:
+      type: Etrias\PayvisionConnector\Type\BankReference
+      serialized_name: bank

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Etrias\PayvisionConnector\Response;
 
+use Etrias\PayvisionConnector\Type\BankReference;
 use Etrias\PayvisionConnector\Type\Redirect;
 use Etrias\PayvisionConnector\Type\TransactionReference;
 
@@ -14,6 +15,9 @@ class PaymentBody
 
     /** @var null|Redirect */
     protected $redirect;
+
+    /** @var null|BankReference */
+    protected $bank;
 
     public function getTransaction(): ?TransactionReference
     {
@@ -35,6 +39,18 @@ class PaymentBody
     public function setRedirect(?Redirect $redirect): self
     {
         $this->redirect = $redirect;
+
+        return $this;
+    }
+
+    public function getBank(): ?BankReference
+    {
+        return $this->bank;
+    }
+
+    public function setBank(?BankReference $bank): self
+    {
+        $this->bank = $bank;
 
         return $this;
     }

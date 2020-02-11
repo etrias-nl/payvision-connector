@@ -1,0 +1,20 @@
+Etrias\PayvisionConnector\Type\BankReference:
+  properties:
+    name:
+      type: string
+      serialized_name: name
+    countryCode:
+      type: string
+      serialized_name: countryCode
+    accountNumber:
+      type: string
+      serialized_name: accountNumber
+    accountHolderName:
+      type: string
+      serialized_name: accountHolderName
+    iban:
+      type: string
+      serialized_name: iban
+    bic:
+      type: string
+      serialized_name: bic
