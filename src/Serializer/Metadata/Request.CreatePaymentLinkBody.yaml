@@ -6,6 +6,9 @@ Etrias\PayvisionConnector\Request\CreatePaymentLinkBody:
     link:
       type: Etrias\PayvisionConnector\Type\Link
       serialized_name: link
+    option:
+      type: Etrias\PayvisionConnector\Type\Option
+      serialized_name: option
     customer:
       type: Etrias\PayvisionConnector\Type\Customer
       serialized_name: customer

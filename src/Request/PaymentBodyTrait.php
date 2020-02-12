@@ -6,11 +6,15 @@ namespace Etrias\PayvisionConnector\Request;
 
 use Etrias\PayvisionConnector\Type\BillingAddress;
 use Etrias\PayvisionConnector\Type\Customer;
+use Etrias\PayvisionConnector\Type\Option;
 use Etrias\PayvisionConnector\Type\Order;
 use Etrias\PayvisionConnector\Type\ShippingAddress;
 
 trait PaymentBodyTrait
 {
+    /** @var null|Option */
+    protected $option;
+
     /** @var null|Customer */
     protected $customer;
 
@@ -22,6 +26,18 @@ trait PaymentBodyTrait
 
     /** @var null|Order */
     protected $order;
+
+    public function getOption(): ?Option
+    {
+        return $this->option;
+    }
+
+    public function setOption(?Option $option): self
+    {
+        $this->option = $option;
+
+        return $this;
+    }
 
     public function getCustomer(): ?Customer
     {

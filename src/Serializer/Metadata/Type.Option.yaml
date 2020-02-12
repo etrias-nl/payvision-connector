@@ -1,0 +1,29 @@
+Etrias\PayvisionConnector\Type\Option:
+  properties:
+    noShipping:
+      type: string
+      serialized_name: noShipping
+    brandName:
+      type: string
+      serialized_name: brandName
+    cartBorderColor:
+      type: string
+      serialized_name: cartBorderColor
+    headerImage:
+      type: string
+      serialized_name: headerImage
+    quantity:
+      type: int
+      serialized_name: quantity
+    locale:
+      type: string
+      serialized_name: locale
+    processingType:
+      type: int
+      serialized_name: processingType
+    minAgeRestriction:
+      type: int
+      serialized_name: minAgeRestriction
+    countryRestriction:
+      type: string
+      serialized_name: countryRestriction
