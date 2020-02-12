@@ -21,6 +21,9 @@ Etrias\PayvisionConnector\Type\Transaction:
     countryCode:
       type: string
       serialized_name: countryCode
+    languageCode:
+      type: string
+      serialized_name: languageCode
     brandId:
       type: int
       serialized_name: brandId

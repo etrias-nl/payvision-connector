@@ -20,6 +20,9 @@ trait TransactionTrait
     /** @var null|string */
     protected $countryCode;
 
+    /** @var null|string */
+    protected $languageCode;
+
     /** @var null|int */
     protected $brandId;
 
@@ -70,6 +73,18 @@ trait TransactionTrait
     public function setCountryCode(?string $countryCode): self
     {
         $this->countryCode = $countryCode;
+
+        return $this;
+    }
+
+    public function getLanguageCode(): ?string
+    {
+        return $this->languageCode;
+    }
+
+    public function setLanguageCode(?string $languageCode): self
+    {
+        $this->languageCode = $languageCode;
 
         return $this;
     }
