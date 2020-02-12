@@ -27,6 +27,9 @@ class LinkReference
     /** @var null|\DateTime */
     protected $expirationTime;
 
+    /** @var null|bool */
+    protected $threeDSecure;
+
     public function getLinkId(): ?string
     {
         return $this->linkId;
@@ -71,6 +74,18 @@ class LinkReference
     public function setExpirationTime(?\DateTime $expirationTime): self
     {
         $this->expirationTime = $expirationTime;
+
+        return $this;
+    }
+
+    public function isThreeDSecure(): ?bool
+    {
+        return $this->threeDSecure;
+    }
+
+    public function setThreeDSecure(?bool $threeDSecure): self
+    {
+        $this->threeDSecure = $threeDSecure;
 
         return $this;
     }

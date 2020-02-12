@@ -15,3 +15,6 @@ Etrias\PayvisionConnector\Type\LinkReference:
     brandIds:
       type: array<string>
       serialized_name: brandIds
+    threeDSecure:
+      type: bool
+      serialized_name: threeDSecure
