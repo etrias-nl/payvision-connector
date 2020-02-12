@@ -6,13 +6,10 @@ namespace Etrias\PayvisionConnector\Type;
 
 class Link
 {
-    use BrandIdsTrait;
+    use LinkTrait;
 
     /** @var null|string */
     protected $duration;
-
-    /** @var null|\DateTime */
-    protected $expirationTime;
 
     /** @var null|string */
     protected $returnUrl;
@@ -25,18 +22,6 @@ class Link
     public function setDuration(?string $duration): self
     {
         $this->duration = $duration;
-
-        return $this;
-    }
-
-    public function getExpirationTime(): ?\DateTime
-    {
-        return $this->expirationTime;
-    }
-
-    public function setExpirationTime(?\DateTime $expirationTime): self
-    {
-        $this->expirationTime = $expirationTime;
 
         return $this;
     }

@@ -3,12 +3,15 @@ Etrias\PayvisionConnector\Type\Link:
     duration:
       type: string
       serialized_name: duration
-    expirationTime:
-      type: DateTime<'Y-m-d\TH:i:sP', null, 'Y-m-d\TH:i:sP'>
-      serialized_name: expirationTime
     returnUrl:
       type: string
       serialized_name: returnUrl
     brandIds:
       type: array<string>
       serialized_name: brandIds
+    expirationTime:
+      type: DateTime<'Y-m-d\TH:i:sP', null, 'Y-m-d\TH:i:sP'>
+      serialized_name: expirationTime
+    threeDSecure:
+      type: bool
+      serialized_name: threeDSecure

@@ -6,15 +6,15 @@ Etrias\PayvisionConnector\Type\LinkReference:
     status:
       type: string
       serialized_name: status
-    expirationTime:
-      type: DateTime<'Y-m-d\TH:i:sP', null, 'Y-m-d\TH:i:sP'>
-      serialized_name: expirationTime
     redirect:
       type: Etrias\PayvisionConnector\Type\Redirect
       serialized_name: redirect
     brandIds:
       type: array<string>
       serialized_name: brandIds
+    expirationTime:
+      type: DateTime<'Y-m-d\TH:i:sP', null, 'Y-m-d\TH:i:sP'>
+      serialized_name: expirationTime
     threeDSecure:
       type: bool
       serialized_name: threeDSecure

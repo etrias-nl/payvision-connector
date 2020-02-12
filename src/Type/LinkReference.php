@@ -6,7 +6,7 @@ namespace Etrias\PayvisionConnector\Type;
 
 class LinkReference
 {
-    use BrandIdsTrait;
+    use LinkTrait;
 
     public const STATUS_READY = 'READY';
     public const STATUS_PAID = 'PAID';
@@ -23,12 +23,6 @@ class LinkReference
 
     /** @var null|Redirect */
     protected $redirect;
-
-    /** @var null|\DateTime */
-    protected $expirationTime;
-
-    /** @var null|bool */
-    protected $threeDSecure;
 
     public function getLinkId(): ?string
     {
@@ -62,30 +56,6 @@ class LinkReference
     public function setRedirect(?Redirect $redirect): self
     {
         $this->redirect = $redirect;
-
-        return $this;
-    }
-
-    public function getExpirationTime(): ?\DateTime
-    {
-        return $this->expirationTime;
-    }
-
-    public function setExpirationTime(?\DateTime $expirationTime): self
-    {
-        $this->expirationTime = $expirationTime;
-
-        return $this;
-    }
-
-    public function isThreeDSecure(): ?bool
-    {
-        return $this->threeDSecure;
-    }
-
-    public function setThreeDSecure(?bool $threeDSecure): self
-    {
-        $this->threeDSecure = $threeDSecure;
 
         return $this;
     }
