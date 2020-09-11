@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Etrias\PayvisionConnector\Functional\Api;
 
+use Etrias\PayvisionConnector\Type\BankReference;
 use Etrias\PayvisionConnector\Type\BillingAddress;
 use Etrias\PayvisionConnector\Type\Card;
 use Etrias\PayvisionConnector\Type\CardWithoutCvv;
@@ -16,6 +17,7 @@ abstract class TestData
 {
     public const BRAND_IDEAL = 'iDeal';
     public const BRAND_VISA = 'VISA';
+    public const BRAND_ID_SEPA = 6010;
 
     public static function visaCard(): Card
     {
@@ -44,13 +46,25 @@ abstract class TestData
         return $card;
     }
 
+    public function bankReference(): BankReference
+    {
+        $bank = new BankReference();
+        $bank
+            ->setAccountHolderName('John Doe')
+            ->setCountryCode('NL')
+            ->setIban('NL91ABNA0417164300')
+        ;
+
+        return $bank;
+    }
+
     public static function customer(): Customer
     {
         $customer = new Customer();
         $customer
             ->setCustomerId('123456789')
             ->setGivenName('John')
-            ->setFamilyName('Doe 😁')
+            ->setFamilyName('Doe')
             ->setSex(Customer::SEX_MALE)
             ->setBirthDate((new \DateTime())->setTimestamp(mktime(0, 0, 0, 7, 28, 1987)))
             ->setPhoneNumber('+0123456789')

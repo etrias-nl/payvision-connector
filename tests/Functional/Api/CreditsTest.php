@@ -18,11 +18,12 @@ final class CreditsTest extends ApiTestCase
             ->setTrackingCode($trackingCode = TestData::trackingCode())
             ->setAmount(5.5)
             ->setCurrencyCode('EUR')
+            ->setBrandId(TestData::BRAND_ID_SEPA)
         ;
         $request = new CreateCreditRequest();
         $request->getBody()
             ->setTransaction($transaction)
-            ->setCard(TestData::visaCardWithoutCvv())
+            ->setBank(TestData::bankReference())
             ->setCustomer(TestData::customer())
         ;
         $response = $this->credits->create($request);

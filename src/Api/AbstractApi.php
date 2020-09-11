@@ -47,6 +47,8 @@ abstract class AbstractApi
             $data->prepareForApiRequest($this->options);
         }
 
+        var_dump($this->serializer->serialize($data, self::JSON_FORMAT));
+
         return $this->client->post(
             $uri,
             [
