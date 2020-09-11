@@ -6,8 +6,8 @@ namespace Etrias\PayvisionConnector\Response;
 
 use Etrias\PayvisionConnector\Type\BankReference;
 use Etrias\PayvisionConnector\Type\CardReference;
-use Etrias\PayvisionConnector\Type\CreditError;
 use Etrias\PayvisionConnector\Type\CreditTransactionReference;
+use Etrias\PayvisionConnector\Type\Error;
 use Etrias\PayvisionConnector\Type\TokenReference;
 
 class CreditBody
@@ -24,7 +24,7 @@ class CreditBody
     /** @var null|TokenReference */
     protected $token;
 
-    /** @var null|CreditError */
+    /** @var null|Error */
     protected $error;
 
     public function getTransaction(): ?CreditTransactionReference
@@ -75,12 +75,12 @@ class CreditBody
         return $this;
     }
 
-    public function getError(): ?CreditError
+    public function getError(): ?Error
     {
         return $this->error;
     }
 
-    public function setError(?CreditError $error): self
+    public function setError(?Error $error): self
     {
         $this->error = $error;
 

@@ -29,12 +29,12 @@ class ErrorResponse
     public function toExceptionMessage(): string
     {
         $error = $this->getBody()->getError();
-        $message = $this->description ?? 'Unknown error';
+        $message = $this->description ?? 'An unknown error occurred.';
         $labels = array_filter(['result' => $this->result, 'error_code' => $error ? $error->getCode() : null]);
 
         if ($error) {
             $labels['description'] = $message;
-            $message = $error->getMessage() ?? 'An unknown error occurred.';
+            $message = $error->getDetailedMessage() ?? $error->getMessage() ?? $message;
         }
 
         if ($labels) {

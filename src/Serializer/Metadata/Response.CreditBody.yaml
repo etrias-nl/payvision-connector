@@ -13,5 +13,5 @@ Etrias\PayvisionConnector\Response\CreditBody:
       type: Etrias\PayvisionConnector\Type\TokenReference
       serialized_name: token
     error:
-      type: Etrias\PayvisionConnector\Type\CreditError
+      type: Etrias\PayvisionConnector\Type\Error
       serialized_name: error
