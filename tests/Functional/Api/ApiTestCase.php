@@ -6,6 +6,7 @@ namespace Tests\Etrias\PayvisionConnector\Functional\Api;
 
 use Etrias\PayvisionConnector\Api\ApiOptions;
 use Etrias\PayvisionConnector\Api\Brands;
+use Etrias\PayvisionConnector\Api\Credits;
 use Etrias\PayvisionConnector\Api\PaymentLinks;
 use Etrias\PayvisionConnector\Api\Payments;
 use Etrias\PayvisionConnector\HttpClient\Plugin\ErrorHandler;
@@ -39,6 +40,9 @@ abstract class ApiTestCase extends TestCase
     /** @var PaymentLinks */
     protected $paymentLinks;
 
+    /** @var Credits */
+    protected $credits;
+
     protected function setUp(): void
     {
         $serializer = SerializerBuilder::create()
@@ -61,9 +65,10 @@ abstract class ApiTestCase extends TestCase
         $apiOptions = new ApiOptions();
         $apiOptions->setBusinessId(getenv('PAYVISION_BUSINESS_ID'));
 
-        $this->brands = new Brands($client);
+        $this->brands = new Brands();
         $this->payments = new Payments($client, $serializer, $apiOptions);
         $this->paymentLinks = new PaymentLinks($client, $serializer, $apiOptions);
+        $this->credits = new Credits($client, $serializer, $apiOptions);
     }
 
     protected function authorize(?string $trackingCode = null): string

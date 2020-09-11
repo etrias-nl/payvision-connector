@@ -6,6 +6,7 @@ namespace Tests\Etrias\PayvisionConnector\Functional\Api;
 
 use Etrias\PayvisionConnector\Type\BillingAddress;
 use Etrias\PayvisionConnector\Type\Card;
+use Etrias\PayvisionConnector\Type\CardWithoutCvv;
 use Etrias\PayvisionConnector\Type\Customer;
 use Etrias\PayvisionConnector\Type\Order;
 use Etrias\PayvisionConnector\Type\OrderLine;
@@ -25,6 +26,19 @@ abstract class TestData
             ->setExpiryMonth(3)
             ->setExpiryYear(2025)
             ->setCvv('123')
+        ;
+
+        return $card;
+    }
+
+    public static function visaCardWithoutCvv(): CardWithoutCvv
+    {
+        $card = new CardWithoutCvv();
+        $card
+            ->setHolderName('John Doe')
+            ->setNumber('4444333322221111')
+            ->setExpiryMonth(3)
+            ->setExpiryYear(2025)
         ;
 
         return $card;
