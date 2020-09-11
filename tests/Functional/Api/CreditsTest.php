@@ -15,6 +15,7 @@ final class CreditsTest extends ApiTestCase
     public function testCreate(): void
     {
         $transaction = (new CreditTransaction())
+            ->setStoreId(1)
             ->setTrackingCode($trackingCode = TestData::trackingCode())
             ->setAmount(5.5)
             ->setCurrencyCode('EUR')

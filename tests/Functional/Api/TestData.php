@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Tests\Etrias\PayvisionConnector\Functional\Api;
 
+use Etrias\PayvisionConnector\Type\Bank;
 use Etrias\PayvisionConnector\Type\BankReference;
 use Etrias\PayvisionConnector\Type\BillingAddress;
 use Etrias\PayvisionConnector\Type\Card;
-use Etrias\PayvisionConnector\Type\CardWithoutCvv;
 use Etrias\PayvisionConnector\Type\Customer;
 use Etrias\PayvisionConnector\Type\Order;
 use Etrias\PayvisionConnector\Type\OrderLine;
@@ -33,26 +33,30 @@ abstract class TestData
         return $card;
     }
 
-    public static function visaCardWithoutCvv(): CardWithoutCvv
+    public static function bank(): Bank
     {
-        $card = new CardWithoutCvv();
-        $card
-            ->setHolderName('John Doe')
-            ->setNumber('4444333322221111')
-            ->setExpiryMonth(3)
-            ->setExpiryYear(2025)
+        $bank = new Bank();
+        $bank
+            ->setAccountHolderName('John Doe')
+            ->setAccountNumber('1234567890')
+            ->setIban('NL91ABNA0417164300')
+            ->setBic('ABNANL2A')
+            ->setCountryCode('NL')
         ;
 
-        return $card;
+        return $bank;
     }
 
-    public function bankReference(): BankReference
+    public static function bankReference(): BankReference
     {
         $bank = new BankReference();
         $bank
             ->setAccountHolderName('John Doe')
-            ->setCountryCode('NL')
+            ->setAccountNumber('1234567890')
             ->setIban('NL91ABNA0417164300')
+            ->setBic('ABNANL2A')
+            ->setCountryCode('NL')
+            ->setName('Test Bank')
         ;
 
         return $bank;

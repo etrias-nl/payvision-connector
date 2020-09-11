@@ -77,14 +77,14 @@ abstract class ApiTestCase extends TestCase
             ->setTrackingCode($trackingCode ?? TestData::trackingCode())
             ->setAmount(1)
             ->setCurrencyCode('EUR')
-            ->setBrandId($this->brands->getByName(TestData::BRAND_VISA)->getId())
+            ->setBrandId(TestData::BRAND_ID_SEPA)
             ->setReturnUrl('http://localhost')
         ;
         $request = new CreatePaymentRequest();
         $request->setAction(Action::AUTHORIZE);
         $request->getBody()
             ->setTransaction($transaction)
-            ->setCard(TestData::visaCard())
+            ->setBank(TestData::bank())
             ->setCustomer(TestData::customer())
             ->setBillingAddress(TestData::billingAddress())
             ->setShippingAddress(TestData::shippingAddress())

@@ -27,7 +27,7 @@ final class PaymentsTest extends ApiTestCase
             ->setTrackingCode($trackingCode = TestData::trackingCode())
             ->setAmount(5.5)
             ->setCurrencyCode('EUR')
-            ->setBrandId($this->brands->getByName(TestData::BRAND_VISA)->getId())
+            ->setBrandId(TestData::BRAND_ID_SEPA)
             ->setPurchaseId('test')
             ->setReturnUrl('http://return-url.com')
         ;
@@ -35,7 +35,7 @@ final class PaymentsTest extends ApiTestCase
         $request->setAction(Action::PAYMENT);
         $request->getBody()
             ->setTransaction($transaction)
-            ->setCard(TestData::visaCard())
+            ->setBank(TestData::bank())
             ->setCustomer(TestData::customer())
             ->setBillingAddress(TestData::billingAddress())
             ->setShippingAddress(TestData::shippingAddress())

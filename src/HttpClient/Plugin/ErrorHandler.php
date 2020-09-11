@@ -36,8 +36,6 @@ class ErrorHandler implements Plugin
 
             if ($status >= 400) {
                 $body = (string) $response->getBody();
-                var_dump($body);
-                die;
 
                 if (!$body || !preg_match('/\bjson\b/i', $response->getHeaderLine('Content-Type'))) {
                     throw new PayvisionException($body ?: 'An error occurred (status '.$response->getStatusCode().').');
