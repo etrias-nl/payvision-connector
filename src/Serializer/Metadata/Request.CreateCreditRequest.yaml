@@ -1,0 +1,11 @@
+Etrias\PayvisionConnector\Request\CreateCreditRequest:
+  properties:
+    action:
+      type: string
+      serialized_name: action
+    header:
+      type: Etrias\PayvisionConnector\Request\GenericHeader
+      serialized_name: header
+    body:
+      type: Etrias\PayvisionConnector\Request\CreateCreditBody
+      serialized_name: body

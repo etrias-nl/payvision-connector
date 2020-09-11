@@ -6,6 +6,7 @@ namespace Tests\Etrias\PayvisionConnector\Functional\Api;
 
 use Etrias\PayvisionConnector\Api\ApiOptions;
 use Etrias\PayvisionConnector\Api\Brands;
+use Etrias\PayvisionConnector\Api\Credits;
 use Etrias\PayvisionConnector\Api\PaymentLinks;
 use Etrias\PayvisionConnector\Api\Payments;
 use Etrias\PayvisionConnector\HttpClient\Plugin\ErrorHandler;
@@ -20,7 +21,6 @@ use Etrias\PayvisionConnector\Type\Transaction;
 use Http\Client\Common\HttpMethodsClient;
 use Http\Client\Common\Plugin\AuthenticationPlugin;
 use Http\Client\Common\Plugin\BaseUriPlugin;
-use Http\Client\Common\Plugin\ErrorPlugin;
 use Http\Client\Common\PluginClient;
 use Http\Discovery\HttpClientDiscovery;
 use Http\Discovery\Psr17FactoryDiscovery;
@@ -40,10 +40,18 @@ abstract class ApiTestCase extends TestCase
     /** @var PaymentLinks */
     protected $paymentLinks;
 
+    /** @var Credits */
+    protected $credits;
+
+    public static function tearDownAfterClass(): void
+    {
+        @exec('rm -rf '.sys_get_temp_dir().'/etrias/payvision-connector/jms-cache');
+    }
+
     protected function setUp(): void
     {
         $serializer = SerializerBuilder::create()
-            ->setCacheDir(sys_get_temp_dir().'/jms-cache')
+            ->setCacheDir(sys_get_temp_dir().'/etrias/payvision-connector/jms-cache')
             ->addMetadataDir(__DIR__.'/../../../src/Serializer/Metadata', 'Etrias\PayvisionConnector')
             ->addDefaultDeserializationVisitors()
             ->addDefaultSerializationVisitors()
@@ -52,7 +60,6 @@ abstract class ApiTestCase extends TestCase
         ;
         $client = new HttpMethodsClient(
             new PluginClient(HttpClientDiscovery::find(), [
-                new ErrorPlugin(['only_server_exception' => true]),
                 new ErrorHandler($serializer),
                 new BaseUriPlugin(Psr17FactoryDiscovery::findUrlFactory()->createUri(getenv('PAYVISION_API_BASE_URI'))),
                 new AuthenticationPlugin(new BasicAuth(getenv('PAYVISION_API_USERNAME'), getenv('PAYVISION_API_PASSWORD'))),
@@ -63,9 +70,10 @@ abstract class ApiTestCase extends TestCase
         $apiOptions = new ApiOptions();
         $apiOptions->setBusinessId(getenv('PAYVISION_BUSINESS_ID'));
 
-        $this->brands = new Brands($client);
+        $this->brands = new Brands();
         $this->payments = new Payments($client, $serializer, $apiOptions);
         $this->paymentLinks = new PaymentLinks($client, $serializer, $apiOptions);
+        $this->credits = new Credits($client, $serializer, $apiOptions);
     }
 
     protected function authorize(?string $trackingCode = null): string
@@ -74,14 +82,14 @@ abstract class ApiTestCase extends TestCase
             ->setTrackingCode($trackingCode ?? TestData::trackingCode())
             ->setAmount(1)
             ->setCurrencyCode('EUR')
-            ->setBrandId($this->brands->getByName(TestData::BRAND_VISA)->getId())
-            ->setReturnUrl('http://localhost')
+            ->setBrandId(TestData::BRAND_ID_SEPA)
+            ->setReturnUrl('https://localhost')
         ;
         $request = new CreatePaymentRequest();
         $request->setAction(Action::AUTHORIZE);
         $request->getBody()
             ->setTransaction($transaction)
-            ->setCard(TestData::visaCard())
+            ->setBank(TestData::bank())
             ->setCustomer(TestData::customer())
             ->setBillingAddress(TestData::billingAddress())
             ->setShippingAddress(TestData::shippingAddress())

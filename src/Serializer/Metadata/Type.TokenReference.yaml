@@ -1,0 +1,8 @@
+Etrias\PayvisionConnector\Type\TokenReference:
+  properties:
+    token:
+      type: string
+      serialized_name: token
+    displayHint:
+      type: string
+      serialized_name: displayHint

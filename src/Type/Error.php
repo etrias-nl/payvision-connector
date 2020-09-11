@@ -12,6 +12,9 @@ class Error
     /** @var null|string */
     protected $message;
 
+    /** @var null|string */
+    protected $detailedMessage;
+
     public function getCode(): ?int
     {
         return $this->code;
@@ -32,6 +35,18 @@ class Error
     public function setMessage(?string $message): self
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    public function getDetailedMessage(): ?string
+    {
+        return $this->detailedMessage;
+    }
+
+    public function setDetailedMessage(?string $detailedMessage): self
+    {
+        $this->detailedMessage = $detailedMessage;
 
         return $this;
     }

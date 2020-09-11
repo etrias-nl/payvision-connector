@@ -1,0 +1,14 @@
+Etrias\PayvisionConnector\Request\CreateCreditBody:
+  properties:
+    transaction:
+      type: Etrias\PayvisionConnector\Type\CreditTransaction
+      serialized_name: transaction
+    card:
+      type: Etrias\PayvisionConnector\Type\CardWithoutCvv
+      serialized_name: card
+    bank:
+      type: Etrias\PayvisionConnector\Type\BankReference
+      serialized_name: bank
+    customer:
+      type: Etrias\PayvisionConnector\Type\Customer
+      serialized_name: customer

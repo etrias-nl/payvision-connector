@@ -1,0 +1,17 @@
+Etrias\PayvisionConnector\Response\CreditBody:
+  properties:
+    transaction:
+      type: Etrias\PayvisionConnector\Type\CreditTransactionReference
+      serialized_name: transaction
+    card:
+      type: Etrias\PayvisionConnector\Type\CardReference
+      serialized_name: card
+    bank:
+      type: Etrias\PayvisionConnector\Type\BankReference
+      serialized_name: bank
+    token:
+      type: Etrias\PayvisionConnector\Type\TokenReference
+      serialized_name: token
+    error:
+      type: Etrias\PayvisionConnector\Type\Error
+      serialized_name: error

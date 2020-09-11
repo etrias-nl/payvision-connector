@@ -6,3 +6,6 @@ Etrias\PayvisionConnector\Type\Error:
     message:
       type: string
       serialized_name: message
+    detailedMessage:
+      type: string
+      serialized_name: detailedMessage
