@@ -24,12 +24,13 @@ final class PaymentsTest extends ApiTestCase
     public function testCreate(): void
     {
         $transaction = (new Transaction())
+            ->setStoreId(1)
             ->setTrackingCode($trackingCode = TestData::trackingCode())
             ->setAmount(5.5)
             ->setCurrencyCode('EUR')
             ->setBrandId(TestData::BRAND_ID_SEPA)
             ->setPurchaseId('test')
-            ->setReturnUrl('http://return-url.com')
+            ->setReturnUrl('https://localhost')
         ;
         $request = new CreatePaymentRequest();
         $request->setAction(Action::PAYMENT);

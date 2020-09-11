@@ -38,7 +38,6 @@ abstract class TestData
         $bank = new Bank();
         $bank
             ->setAccountHolderName('John Doe')
-            ->setAccountNumber('1234567890')
             ->setIban('NL91ABNA0417164300')
             ->setBic('ABNANL2A')
             ->setCountryCode('NL')
@@ -56,7 +55,6 @@ abstract class TestData
             ->setIban('NL91ABNA0417164300')
             ->setBic('ABNANL2A')
             ->setCountryCode('NL')
-            ->setName('Test Bank')
         ;
 
         return $bank;
@@ -68,7 +66,7 @@ abstract class TestData
         $customer
             ->setCustomerId('123456789')
             ->setGivenName('John')
-            ->setFamilyName('Doe')
+            ->setFamilyName('Doe 😁')
             ->setSex(Customer::SEX_MALE)
             ->setBirthDate((new \DateTime())->setTimestamp(mktime(0, 0, 0, 7, 28, 1987)))
             ->setPhoneNumber('+0123456789')

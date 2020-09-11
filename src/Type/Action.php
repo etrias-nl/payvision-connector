@@ -8,4 +8,5 @@ abstract class Action
 {
     public const PAYMENT = 'payment';
     public const AUTHORIZE = 'authorize';
+    public const CREDIT = 'credit';
 }

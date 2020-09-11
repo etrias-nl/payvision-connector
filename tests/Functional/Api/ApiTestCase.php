@@ -43,10 +43,15 @@ abstract class ApiTestCase extends TestCase
     /** @var Credits */
     protected $credits;
 
+    public static function tearDownAfterClass(): void
+    {
+        @exec('rm -rf '.sys_get_temp_dir().'/etrias/payvision-connector/jms-cache');
+    }
+
     protected function setUp(): void
     {
         $serializer = SerializerBuilder::create()
-            ->setCacheDir(sys_get_temp_dir().'/jms-cache')
+            ->setCacheDir(sys_get_temp_dir().'/etrias/payvision-connector/jms-cache')
             ->addMetadataDir(__DIR__.'/../../../src/Serializer/Metadata', 'Etrias\PayvisionConnector')
             ->addDefaultDeserializationVisitors()
             ->addDefaultSerializationVisitors()
@@ -78,7 +83,7 @@ abstract class ApiTestCase extends TestCase
             ->setAmount(1)
             ->setCurrencyCode('EUR')
             ->setBrandId(TestData::BRAND_ID_SEPA)
-            ->setReturnUrl('http://localhost')
+            ->setReturnUrl('https://localhost')
         ;
         $request = new CreatePaymentRequest();
         $request->setAction(Action::AUTHORIZE);
