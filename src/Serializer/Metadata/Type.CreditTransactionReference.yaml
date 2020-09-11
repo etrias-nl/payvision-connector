@@ -1,0 +1,17 @@
+Etrias\PayvisionConnector\Type\CreditTransactionReference:
+  properties:
+    action:
+      type: string
+      serialized_name: action
+    id:
+      type: string
+      serialized_name: id
+    trackingCode:
+      type: string
+      serialized_name: trackingCode
+    amount:
+      type: string
+      serialized_name: amount
+    currencyCode:
+      type: string
+      serialized_name: currencyCode

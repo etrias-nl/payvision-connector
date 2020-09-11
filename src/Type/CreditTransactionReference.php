@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Etrias\PayvisionConnector\Type;
 
-class Error
+class CreditTransactionReference
 {
-    use ErrorTrait;
+    use TransactionResultTrait;
 }

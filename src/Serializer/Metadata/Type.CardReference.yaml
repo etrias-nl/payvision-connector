@@ -1,0 +1,20 @@
+Etrias\PayvisionConnector\Type\CardReference:
+  properties:
+    firstSixDigits:
+      type: string
+      serialized_name: firstSixDigits
+    lastFourDigits:
+      type: string
+      serialized_name: lastFourDigits
+    approvalCode:
+      type: string
+      serialized_name: approvalCode
+    holderName:
+      type: string
+      serialized_name: holderName
+    expiryMonth:
+      type: string
+      serialized_name: expiryMonth
+    expiryYear:
+      type: string
+      serialized_name: expiryYear

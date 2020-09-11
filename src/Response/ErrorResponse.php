@@ -34,7 +34,7 @@ class ErrorResponse
 
         if ($error) {
             $labels['description'] = $message;
-            $message = $error->getMessage() ?? 'An unknown error occured.';
+            $message = $error->getMessage() ?? 'An unknown error occurred.';
         }
 
         if ($labels) {

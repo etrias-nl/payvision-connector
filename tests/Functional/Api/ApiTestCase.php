@@ -20,7 +20,6 @@ use Etrias\PayvisionConnector\Type\Transaction;
 use Http\Client\Common\HttpMethodsClient;
 use Http\Client\Common\Plugin\AuthenticationPlugin;
 use Http\Client\Common\Plugin\BaseUriPlugin;
-use Http\Client\Common\Plugin\ErrorPlugin;
 use Http\Client\Common\PluginClient;
 use Http\Discovery\HttpClientDiscovery;
 use Http\Discovery\Psr17FactoryDiscovery;
@@ -52,7 +51,6 @@ abstract class ApiTestCase extends TestCase
         ;
         $client = new HttpMethodsClient(
             new PluginClient(HttpClientDiscovery::find(), [
-                new ErrorPlugin(['only_server_exception' => true]),
                 new ErrorHandler($serializer),
                 new BaseUriPlugin(Psr17FactoryDiscovery::findUrlFactory()->createUri(getenv('PAYVISION_API_BASE_URI'))),
                 new AuthenticationPlugin(new BasicAuth(getenv('PAYVISION_API_USERNAME'), getenv('PAYVISION_API_PASSWORD'))),

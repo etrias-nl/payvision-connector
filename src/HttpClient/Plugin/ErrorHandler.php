@@ -34,7 +34,7 @@ class ErrorHandler implements Plugin
         return $next($request)->then(function (ResponseInterface $response) {
             $status = $response->getStatusCode();
 
-            if ($status >= 400 && $status < 500) {
+            if ($status >= 400) {
                 $body = (string) $response->getBody();
 
                 if (!$body || !preg_match('/\bjson\b/i', $response->getHeaderLine('Content-Type'))) {

@@ -1,0 +1,35 @@
+Etrias\PayvisionConnector\Type\CreditTransaction:
+  properties:
+    trackingCode:
+      type: string
+      serialized_name: trackingCode
+    amount:
+      type: string
+      serialized_name: amount
+    currencyCode:
+      type: string
+      serialized_name: currencyCode
+    storeId:
+      type: int
+      serialized_name: storeId
+    countryCode:
+      type: string
+      serialized_name: countryCode
+    brandId:
+      type: int
+      serialized_name: brandId
+    type:
+      type: string
+      serialized_name: type
+    source:
+      type: string
+      serialized_name: source
+    descriptor:
+      type: string
+      serialized_name: descriptor
+    token:
+      type: string
+      serialized_name: token
+    tokenize:
+      type: bool
+      serialized_name: tokenize
