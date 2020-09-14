@@ -10,11 +10,15 @@ use Etrias\PayvisionConnector\Api\Credits;
 use Etrias\PayvisionConnector\Api\PaymentLinks;
 use Etrias\PayvisionConnector\Api\Payments;
 use Etrias\PayvisionConnector\HttpClient\Plugin\ErrorHandler;
+use Etrias\PayvisionConnector\Request\CreateCreditRequest;
 use Etrias\PayvisionConnector\Request\CreatePaymentLinkRequest;
 use Etrias\PayvisionConnector\Request\CreatePaymentRequest;
+use Etrias\PayvisionConnector\Response\CreditResponse;
 use Etrias\PayvisionConnector\Response\PaymentLinkResponse;
+use Etrias\PayvisionConnector\Response\PaymentResponse;
 use Etrias\PayvisionConnector\Type\Action;
 use Etrias\PayvisionConnector\Type\Brand;
+use Etrias\PayvisionConnector\Type\CreditTransaction;
 use Etrias\PayvisionConnector\Type\Link;
 use Etrias\PayvisionConnector\Type\LinkTransaction;
 use Etrias\PayvisionConnector\Type\Transaction;
@@ -76,28 +80,28 @@ abstract class ApiTestCase extends TestCase
         $this->credits = new Credits($client, $serializer, $apiOptions);
     }
 
-    protected function authorize(?string $trackingCode = null): string
+    protected function createPayment(?string $trackingCode = null, ?string $action = null): PaymentResponse
     {
         $transaction = (new Transaction())
+            ->setStoreId(1)
             ->setTrackingCode($trackingCode ?? TestData::trackingCode())
-            ->setAmount(1)
+            ->setAmount(5.5)
             ->setCurrencyCode('EUR')
-            ->setBrandId(TestData::BRAND_ID_SEPA)
+            ->setBrandId($this->brands->getByName(TestData::BRAND_VISA)->getId())
             ->setReturnUrl('https://localhost')
         ;
         $request = new CreatePaymentRequest();
-        $request->setAction(Action::AUTHORIZE);
+        $request->setAction($action ?? Action::PAYMENT);
         $request->getBody()
             ->setTransaction($transaction)
-            ->setBank(TestData::bank())
+            ->setCard(TestData::visaCard())
             ->setCustomer(TestData::customer())
             ->setBillingAddress(TestData::billingAddress())
             ->setShippingAddress(TestData::shippingAddress())
             ->setOrder(TestData::order())
         ;
-        $response = $this->payments->create($request);
 
-        return $response->getBody()->getTransaction()->getId();
+        return $this->payments->create($request);
     }
 
     protected function createLink(?string $trackingCode = null): PaymentLinkResponse
@@ -108,7 +112,7 @@ abstract class ApiTestCase extends TestCase
             ->setCurrencyCode('EUR')
         ;
         $link = (new Link())
-            ->setReturnUrl('http://return-url.com')
+            ->setReturnUrl('https://return-url.com')
             ->setBrandIds(array_map(static function (Brand $brand): int {
                 return $brand->getId();
             }, $this->brands->getAll()))
@@ -124,5 +128,25 @@ abstract class ApiTestCase extends TestCase
         ;
 
         return $this->paymentLinks->create($request);
+    }
+
+    protected function createCredit(?string $trackingCode = null): CreditResponse
+    {
+        $transaction = (new CreditTransaction())
+            ->setStoreId(1)
+            ->setTrackingCode($trackingCode ?? TestData::trackingCode())
+            ->setAmount(1)
+            ->setCurrencyCode('EUR')
+            ->setBrandId(TestData::BRAND_ID_SEPA)
+            ->setCountryCode('NL')
+        ;
+        $request = new CreateCreditRequest();
+        $request->getBody()
+            ->setTransaction($transaction)
+            ->setBank($bank = TestData::bankReference())
+            ->setCustomer(TestData::customer())
+        ;
+
+        return $this->credits->create($request);
     }
 }

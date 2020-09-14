@@ -51,7 +51,6 @@ abstract class TestData
         $bank = new BankReference();
         $bank
             ->setAccountHolderName('John Doe')
-            ->setAccountNumber('1234567890')
             ->setIban('NL91ABNA0417164300')
             ->setBic('ABNANL2A')
             ->setCountryCode('NL')
