@@ -9,9 +9,13 @@ use Etrias\PayvisionConnector\Type\Customer;
 use Etrias\PayvisionConnector\Type\Option;
 use Etrias\PayvisionConnector\Type\Order;
 use Etrias\PayvisionConnector\Type\ShippingAddress;
+use Etrias\PayvisionConnector\Type\ThreeDSecure;
 
 trait PaymentBodyTrait
 {
+    /** @var null|ThreeDSecure */
+    protected $threeDSecure;
+
     /** @var null|Option */
     protected $option;
 
@@ -26,6 +30,18 @@ trait PaymentBodyTrait
 
     /** @var null|Order */
     protected $order;
+
+    public function getThreeDSecure(): ?ThreeDSecure
+    {
+        return $this->threeDSecure;
+    }
+
+    public function setThreeDSecure(?ThreeDSecure $threeDSecure): self
+    {
+        $this->threeDSecure = $threeDSecure;
+
+        return $this;
+    }
 
     public function getOption(): ?Option
     {

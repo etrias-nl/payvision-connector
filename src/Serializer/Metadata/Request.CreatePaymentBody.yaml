@@ -9,6 +9,9 @@ Etrias\PayvisionConnector\Request\CreatePaymentBody:
     bank:
       type: Etrias\PayvisionConnector\Type\Bank
       serialized_name: bank
+    threeDSecure:
+      type: Etrias\PayvisionConnector\Type\ThreeDSecure
+      serialized_name: threeDSecure
     option:
       type: Etrias\PayvisionConnector\Type\Option
       serialized_name: option

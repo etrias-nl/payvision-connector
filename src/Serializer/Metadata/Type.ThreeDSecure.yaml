@@ -1,0 +1,5 @@
+Etrias\PayvisionConnector\Type\ThreeDSecure:
+  properties:
+    version:
+      type: string
+      serialized_name: version
