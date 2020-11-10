@@ -7,6 +7,7 @@ namespace Tests\Etrias\PayvisionConnector\Functional\Api;
 use Etrias\PayvisionConnector\Exception\PayvisionException;
 use Etrias\PayvisionConnector\Type\LinkReference;
 use Etrias\PayvisionConnector\Type\ResultCode;
+use Etrias\PayvisionConnector\Type\ThreeDSecure;
 
 /**
  * @internal
@@ -21,6 +22,22 @@ final class PaymentLinksTest extends ApiTestCase
         self::assertSame(ResultCode::OK, $link->getResult());
         self::assertIsString($body->getLink()->getLinkId());
         self::assertSame(LinkReference::STATUS_READY, $body->getLink()->getStatus());
+        self::assertFalse($body->getLink()->isThreeDSecure());
+        self::assertSame($trackingCode, $body->getTransaction()->getTrackingCode());
+    }
+
+    public function testCreateThreeDsecure(): void
+    {
+        $threeDSecure = new ThreeDSecure();
+        $threeDSecure->setVersion(ThreeDSecure::VERSION_2);
+
+        $link = $this->createLink($trackingCode = TestData::trackingCode(), $threeDSecure);
+        $body = $link->getBody();
+
+        self::assertSame(ResultCode::OK, $link->getResult());
+        self::assertIsString($body->getLink()->getLinkId());
+        self::assertSame(LinkReference::STATUS_READY, $body->getLink()->getStatus());
+        self::assertTrue($body->getLink()->isThreeDSecure());
         self::assertSame($trackingCode, $body->getTransaction()->getTrackingCode());
     }
 

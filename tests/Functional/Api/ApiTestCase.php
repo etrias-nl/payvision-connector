@@ -21,6 +21,7 @@ use Etrias\PayvisionConnector\Type\Brand;
 use Etrias\PayvisionConnector\Type\CreditTransaction;
 use Etrias\PayvisionConnector\Type\Link;
 use Etrias\PayvisionConnector\Type\LinkTransaction;
+use Etrias\PayvisionConnector\Type\ThreeDSecure;
 use Etrias\PayvisionConnector\Type\Transaction;
 use Http\Client\Common\HttpMethodsClient;
 use Http\Client\Common\Plugin\AuthenticationPlugin;
@@ -104,7 +105,7 @@ abstract class ApiTestCase extends TestCase
         return $this->payments->create($request);
     }
 
-    protected function createLink(?string $trackingCode = null): PaymentLinkResponse
+    protected function createLink(?string $trackingCode = null, ?ThreeDSecure $threeDSecure = null): PaymentLinkResponse
     {
         $transaction = (new LinkTransaction())
             ->setTrackingCode($trackingCode ?? TestData::trackingCode())
@@ -125,7 +126,12 @@ abstract class ApiTestCase extends TestCase
             ->setBillingAddress(TestData::billingAddress())
             ->setShippingAddress(TestData::shippingAddress())
             ->setOrder(TestData::order())
+            ->setThreeDSecure($threeDSecure)
         ;
+
+        if ($threeDSecure) {
+            $link->setThreeDSecure(true);
+        }
 
         return $this->paymentLinks->create($request);
     }
