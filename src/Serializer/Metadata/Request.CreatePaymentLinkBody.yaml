@@ -6,6 +6,9 @@ Etrias\PayvisionConnector\Request\CreatePaymentLinkBody:
     link:
       type: Etrias\PayvisionConnector\Type\Link
       serialized_name: link
+    threeDSecure:
+      type: Etrias\PayvisionConnector\Type\ThreeDSecure
+      serialized_name: threeDSecure
     option:
       type: Etrias\PayvisionConnector\Type\Option
       serialized_name: option
